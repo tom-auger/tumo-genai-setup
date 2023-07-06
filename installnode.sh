@@ -41,3 +41,11 @@ else
     fi
 fi
 
+lines_to_append='export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+
+# Append the lines to .bashrc
+echo "$lines_to_append" >> ~/.bashrc
+
+# Source the modified .bashrc to apply the changes in the current shell session
+source ~/.bashrc
